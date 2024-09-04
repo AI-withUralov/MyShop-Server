@@ -1,8 +1,7 @@
 console.log("Ishladi")
 
-import moment from "moment";
+// Architectural pattern: MVC, Dependency Injection, MVP
+// MVC = MODEL VIEW CONTROLLER
 
-const currentTime = moment().format("YYYY MM DD");
-console. log (currentTime);
-const person: string = "Martin";
-const count: number = 100;
+
+// Design pattern: Middleware, Decotar
