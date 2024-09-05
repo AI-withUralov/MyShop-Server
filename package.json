@@ -59,10 +59,10 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "ts-node /Users/sherzodbek/Desktop/Burak/src/train.ts",
     "start:dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
-    "train": "nodemon train.js",
+    "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jason",
