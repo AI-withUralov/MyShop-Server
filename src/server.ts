@@ -9,9 +9,19 @@ dotenv.config();
 // Cluster => Database => Collection => Document  -------------------------> Mongodb 
 
 import mongoose from "mongoose";
+import app from "./app";
 
-mongoose.connect(process.env.MONGO_URL as string, {}).then((data) => {
-    console.log("MongoDB connected successfuly!");
-    const PORT =process.env.PORT ?? 3003;
-}).catch((err) => console.log("Error on connection MongoDB ", err));
+// Connect to MongoDB using mongoose
+mongoose
+  .connect(process.env.MONGO_URL as string, {}) // MongoDB connection URL from environment variables
+  .then((data) => {
+    console.log("MongoDB connection succeed"); // Log success message
+    const PORT = process.env.PORT ?? 3003; // Set the server port, default to 3003 if not provided
+    app.listen(PORT, function () {
+      console.log(`The server is running successfully on port: ${PORT}`); // Log server status
+    });
+  })
+  .catch((err) => console.log("ERROR on connection MongoDB", err)); // Log any connection errors
+
+
 
