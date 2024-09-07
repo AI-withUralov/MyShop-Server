@@ -1,15 +1,12 @@
 // Architectural pattern: MVC, Dependency Injection, MVP
 // MVC = MODEL VIEW CONTROLLER
-// Design pattern: Middleware, Decotar
+// Design pattern: Middleware, Decorator
 
 import dotenv from 'dotenv';
 dotenv.config();
-
-//console.log("PORT: ", process.env.PORT)
-// Cluster => Database => Collection => Document  -------------------------> Mongodb 
-
 import mongoose from "mongoose";
-import app from "./app";
+import app from "./views/app";
+import router from "./router";
 
 // Connect to MongoDB using mongoose
 mongoose
