@@ -5,7 +5,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import mongoose from "mongoose";
-import app from "./views/app";
+import app from "./app";
 import router from "./router";
 
 // Connect to MongoDB using mongoose
