@@ -30,5 +30,18 @@ function getPositive(arr: number[]): string {
 }
 
 const javob2 = getPositive([33,-3, -4, 55]);
-console.log("Javob: ",javob2); 
+//console.log("Javob: ",javob2); 
 
+
+/* ------ Task H2 -------  */
+
+//Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+//MASALAN: getDigits("m14i1t") return qiladi "141"
+
+
+function separate(num: string) {
+  return num.replace(/\D/g, '');
+}
+
+const H2 = separate('he234llo99');
+console.log(H2);
