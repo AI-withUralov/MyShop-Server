@@ -1,14 +1,17 @@
 import express from "express";
-const routerAdmin = express.Router(); // Create router object for admin routes
+const routerAdmin = express.Router(); 
 import restaurantController from "./controllers/restaurant.controller";
 
-// Route for admin home page
+/** Restaurant */
 routerAdmin.get('/', restaurantController.goHome);
+routerAdmin
+    .get('/login', restaurantController.getLogin)
+    .post('/login', restaurantController.processLogin);
+routerAdmin
+    .get('/signup', restaurantController.getSignup)
+    .post('/signup', restaurantController.processSignup);
 
-// Route for login page
-routerAdmin.get('/login', restaurantController.getLogin);
+/** Product */
+/** User */
 
-// Route for signup page
-routerAdmin.get('/signup', restaurantController.getSignup);
-
-export default routerAdmin; // Export the admin router
+export default routerAdmin; 
