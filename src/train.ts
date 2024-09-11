@@ -1,3 +1,13 @@
+/* Project Standards:
+- Logging standards
+- Naming standards:
+    function, method, variable => CAMEL 
+    class => PASCAL 
+    folder, file => KEBAB
+    CSS = SNAKE
+- Error handling
+*/
+
 /* ------ Task G -------  */
 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
