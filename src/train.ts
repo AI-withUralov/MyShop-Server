@@ -40,7 +40,7 @@ const javob2 = getPositive([33,-3, -4, 55]);
 
 
 function separate(num: string) {
-  return num.replace(/\D/g, '');
+  return num.replace(/\D/gi, '');
 }
 
 const H2 = separate('he234llo99');
