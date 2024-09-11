@@ -8,6 +8,12 @@
 - Error handling
 */
 
+/** 
+  Traditional API
+  Rest API
+  GraphQL API
+ */
+
 /* ------ Task G -------  */
 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
@@ -54,4 +60,25 @@ function separate(num: string) {
 }
 
 const H2 = separate('he234llo99');
-console.log(H2);
+//console.log(H2);
+
+
+/* ------ Task I -------  */
+// Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+// MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+
+function mostFrequentElement(arr: number[]) {
+  let res = [];
+  for (let x of arr) {
+      let count = 0;
+      for (let i of arr) {
+          if (i == x) {
+              count++;
+          }
+      }
+      res.push(count);
+  }
+  return arr[res.indexOf(Math.max(...res))];
+}
+const Task_I = mostFrequentElement([13 , 2 , 1 , 2 , 10 , 1 , 1 ]);
+console.log("The most frequent number is: ", Task_I)

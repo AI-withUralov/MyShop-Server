@@ -1,6 +1,8 @@
 import { Request, Response } from "express"; // Importing types for request and response from Express
 import { T } from "../libs/types/common"; // Importing a custom type 'T'
 import MemberService from "../models/Member-service"; // Importing the MemberService model
+import { MemberInput } from "../libs/types/member";
+import { MemberType } from "../libs/enums/member-enum";
 
 // Initializing the restaurant controller object with type 'T'
 const restaurantController: T = {};
@@ -45,13 +47,22 @@ restaurantController.processLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processSignup = (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
     console.log("processSignup");
-    res.send("Done!"); // Send signup page response
+
+    const newMember: MemberInput = req.body;
+    newMember.memberType = MemberType.RESTAURANT;
+
+    const memberService = new MemberService();
+    const result = await memberService.processSignup(newMember);
+
+    res.send(result);
   } catch (err) {
-    console.log("Error, processSignup:", err); // Log any errors
+    console.log("Error, processSignup:", err);
+    res.send(err);
   }
 };
 
-export default restaurantController; // Export the restaurant controller
+export default restaurantController;
+
