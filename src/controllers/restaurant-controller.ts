@@ -1,7 +1,7 @@
 import { Request, Response } from "express"; // Importing types for request and response from Express
 import { T } from "../libs/types/common"; // Importing a custom type 'T'
 import MemberService from "../models/Member-service"; // Importing the MemberService model
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member-enum";
 
 // Initializing the restaurant controller object with type 'T'
@@ -38,23 +38,38 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
     console.log("processLogin");
-    res.send("Done!"); // Send signup page response
+    console.log("body:", req.body);
+    const input: LoginInput =req.body;
+
+    const memberService = new MemberService();
+    const result = await memberService.processLogin(input);
+
+    res.send(result);
+
   } catch (err) {
     console.log("Error, processLogin:", err); // Log any errors
+    res.send(err);
   }
 };
+
 
 restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
     console.log("processSignup");
 
+    // Extract the member input data from the request body
     const newMember: MemberInput = req.body;
+
+    // Set the memberType to 'RESTAURANT' for this signup
     newMember.memberType = MemberType.RESTAURANT;
 
+    // Create an instance of the MemberService to handle business logic
     const memberService = new MemberService();
+
+    // Call the processSignup function from the MemberService, passing the new member data
     const result = await memberService.processSignup(newMember);
 
     res.send(result);
@@ -63,6 +78,7 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     res.send(err);
   }
 };
+
 
 export default restaurantController;
 
