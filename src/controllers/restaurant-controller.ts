@@ -1,6 +1,6 @@
 import { Request, Response } from "express"; // Importing types for request and response from Express
 import { T } from "../libs/types/common"; // Importing a custom type 'T'
-import MemberService from "../models/Member-service"; // Importing the MemberService model
+import MemberService from "../models/member-service"; // Importing the MemberService model
 import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member-enum";
 
