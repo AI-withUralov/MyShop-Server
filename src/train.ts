@@ -87,4 +87,24 @@ function mostFrequentElement(arr: number[]) {
   return arr[res.indexOf(Math.max(...res))];
 }
 const Task_I = mostFrequentElement([13 , 2 , 1 , 2 , 10 , 1 , 1 ]);
-console.log("The most frequent number is: ", Task_I)
+//console.log("The most frequent number is: ", Task_I)
+
+
+/* ------ Task I -------  */
+//Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+//MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+
+function longestWord(a:string){
+  let str = a.split(" ");
+  let longest = 0;
+  let word = null;
+  str.forEach(function(str:string) {
+      if (longest < str.length) {
+          longest = str.length;
+          word = str;
+      }
+  });
+  return word;
+}
+const Task_J = longestWord("I am from Uzbekistan");
+console.log(Task_J);
