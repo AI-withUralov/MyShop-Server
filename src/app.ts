@@ -11,15 +11,16 @@ app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(express.json()); // Parse JSON data
 app.use(morgan(MORGAN_FORMAT))
-// 2-SESSIONS: (Sessions can be added here if needed)
 
-// 3-VIEWS: Set up view engine (EJS) and views directory
+// 2-SESSIONS: 
+
+// 3-VIEWS: 
 app.set("views", path.join(__dirname, "views")); // Set views folder
 app.set("view engine", "ejs"); // Use EJS as template engine
 
-// 4-ROUTERS: (Routes should be added here)
-app.use('/admin', routerAdmin); // EJS
-app.use('/', router);      // REACT
+// 4-ROUTERS:
+app.use('/admin', routerAdmin); // SSR
+app.use('/', router);      // SPA
 
 // Export the app for use in other files
 export default app;

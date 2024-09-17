@@ -1,6 +1,6 @@
-import { Request, Response } from "express"; // Importing types for request and response from Express
-import { T } from "../libs/types/common"; // Importing a custom type 'T'
-import MemberService from "../models/member-service"; // Importing the MemberService model
+import { Request, Response } from "express";
+import { T } from "../libs/types/common"; 
+import MemberService from "../models/member-service"; 
 import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member-enum";
 
@@ -10,7 +10,7 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome")
-    res.send("Home Page"); // Send home page response
+    res.render('home')
   } catch (err) {
     console.log("Error, goHome:", err); // Log any errors
   }
@@ -19,7 +19,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
-    res.send("Signup Page"); // Send signup page response
+    res.render('signup')
   } catch (err) {
     console.log("Error, getSignup:", err); // Log any errors
   }
@@ -28,7 +28,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
-    res.send("Login Page"); // Send login page response
+    res.render('login')
     // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, getLogin:", err); // Log any errors
