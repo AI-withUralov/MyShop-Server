@@ -14,6 +14,12 @@
   GraphQL API
  */
 
+/**
+Traditional FD => BSSR (admin) => EJS
+Modern FD => SPA (user's application) => React
+
+ */
+
 /* ------ Task G -------  */
 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.

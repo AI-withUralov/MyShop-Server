@@ -4,10 +4,9 @@ import MemberService from "../models/member-service"; // Importing the MemberSer
 import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member-enum";
 
-// Initializing the restaurant controller object with type 'T'
+const memberService = new MemberService();
 const restaurantController: T = {};
 
-// Define 'goHome' function to handle the home page route
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome")
@@ -17,7 +16,15 @@ restaurantController.goHome = (req: Request, res: Response) => {
   }
 };
 
-// Define 'getLogin' function to handle the login page route
+restaurantController.getSignup = (req: Request, res: Response) => {
+  try {
+    console.log("getSignup");
+    res.send("Signup Page"); // Send signup page response
+  } catch (err) {
+    console.log("Error, getSignup:", err); // Log any errors
+  }
+};
+
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
@@ -28,13 +35,19 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-// Define 'getSignup' function to handle the signup page route
-restaurantController.getSignup = (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: Request, res: Response) => {
   try {
-    console.log("getSignup");
-    res.send("Signup Page"); // Send signup page response
+    console.log("processSignup");
+
+    const newMember: MemberInput = req.body;
+    newMember.memberType = MemberType.RESTAURANT;
+    const result = await memberService.processSignup(newMember);
+    // TODO: Sessions Authentications
+
+    res.send(result);
   } catch (err) {
-    console.log("Error, getSignup:", err); // Log any errors
+    console.log("Error, processSignup:", err);
+    res.send(err);
   }
 };
 
@@ -43,9 +56,9 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
     console.log("processLogin");
     console.log("body:", req.body);
     const input: LoginInput =req.body;
-
-    const memberService = new MemberService();
     const result = await memberService.processLogin(input);
+    // TODO: Sessions Authentications
+
 
     res.send(result);
 
@@ -55,29 +68,6 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
   }
 };
 
-
-restaurantController.processSignup = async (req: Request, res: Response) => {
-  try {
-    console.log("processSignup");
-
-    // Extract the member input data from the request body
-    const newMember: MemberInput = req.body;
-
-    // Set the memberType to 'RESTAURANT' for this signup
-    newMember.memberType = MemberType.RESTAURANT;
-
-    // Create an instance of the MemberService to handle business logic
-    const memberService = new MemberService();
-
-    // Call the processSignup function from the MemberService, passing the new member data
-    const result = await memberService.processSignup(newMember);
-
-    res.send(result);
-  } catch (err) {
-    console.log("Error, processSignup:", err);
-    res.send(err);
-  }
-};
 
 
 export default restaurantController;
