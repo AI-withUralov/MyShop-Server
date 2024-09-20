@@ -96,7 +96,7 @@ const Task_I = mostFrequentElement([13 , 2 , 1 , 2 , 10 , 1 , 1 ]);
 //console.log("The most frequent number is: ", Task_I)
 
 
-/* ------ Task I -------  */
+/* ------ Task J -------  */
 //Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
 //MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 
@@ -113,4 +113,17 @@ function longestWord(a:string){
   return word;
 }
 const Task_J = longestWord("I am from Uzbekistan");
-console.log(Task_J);
+//console.log(Task_J);
+
+/* ------ Task K -------  */
+//Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
+//MASALAN: countVowels("string") return 1;
+
+
+function countWovels(v:string) {
+  let m = v.match(/[euioa]/gi);
+  return m === null ? 0: m.length 
+}
+
+const Taks_K = countWovels("Wee are MIT15!")
+console.log("We have",Taks_K, "vowels");
