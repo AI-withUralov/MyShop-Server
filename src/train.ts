@@ -20,6 +20,12 @@ Modern FD => SPA (user's application) => React
 
  */
 
+/** Cookylar xislatlari
+  request join
+  self destroy
+ 
+ */
+
 /* ------ Task G -------  */
 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
