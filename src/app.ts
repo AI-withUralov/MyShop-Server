@@ -5,8 +5,8 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan"
 import  { MORGAN_FORMAT } from "./libs/config"
 
-import session from "express-session";
-import ConnectMongoDB from "connect-mongodb-session"
+import session from "express-session"; /// session datani HTTP requestlarda manage qilishda yordam beradi
+import ConnectMongoDB from "connect-mongodb-session" // session datani in a MongoDB databasega saqlaydi
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
