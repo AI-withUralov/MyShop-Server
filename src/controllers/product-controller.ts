@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import Errors from "../libs/Errors";
 
 const productController: T = {};
-productController.getAllProducts = async (req: Request, res: Response) => {
+productController.getAllProducts = async (req:Request, res: Response) => {
     try{
         console.log("getAllProducts");
         res.render("products");
