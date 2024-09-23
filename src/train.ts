@@ -8,19 +8,31 @@
 - Error handling
 */
 
-/** 
+
+/** Validations:
+  1) Frontend validation
+  2) Backend validation
+  3) Database validation
+
+  4) Pipe validation - Front va Backend orasida serverga kirishga javob beradi
+ 
+ */
+
+
+
+/** Request: 
   Traditional API
   Rest API
   GraphQL API
  */
 
-/**
+/** Frontend Development:
 Traditional FD => BSSR (admin) => EJS
 Modern FD => SPA (user's application) => React
 
  */
 
-/** Cookylar xislatlari
+/** Cookylar xislatlari:
   request join
   self destroy
  
@@ -126,4 +138,19 @@ function countWovels(v:string) {
 }
 
 const Taks_K = countWovels("Wee are MIT15!")
-console.log("We have",Taks_K, "vowels");
+//console.log("We have",Taks_K, "vowels");
+
+
+
+/* ------ Task K -------  */
+//Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+//MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+
+function reverseSentence(sentence: string): string {
+  return sentence
+      .split(' ')                  
+      .map(word => word.split('').reverse().join(''))  
+      .join(' ');                 
+}
+
+console.log(reverseSentence("we like coding!")); 
