@@ -142,7 +142,7 @@ const Taks_K = countWovels("Wee are MIT15!")
 
 
 
-/* ------ Task K -------  */
+/* ------ Task L -------  */
 //Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 //MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 
