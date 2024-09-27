@@ -167,7 +167,19 @@ function getSquareNumbers(numbers: number[]): { number: number, square: number }
   }));
 }
 
-console.log(getSquareNumbers([1, 2, 3]));
+//console.log(getSquareNumbers([1, 2, 3]));
 
+/* ------ Task N -------  */
+//Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+//MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+function palindromCheck(str: string): boolean {
+  // Stringni teskari o'giramiz va uni asl string bilan solishtiramiz
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
+}
+
+console.log(palindromCheck("dad"));  // true
+console.log(palindromCheck("son"));  // false
 
 
