@@ -179,7 +179,22 @@ function palindromCheck(str: string): boolean {
   return str === reversedStr;
 }
 
-console.log(palindromCheck("dad"));  // true
-console.log(palindromCheck("son"));  // false
+//console.log(palindromCheck("dad"));  // true
+//console.log(palindromCheck("son"));  // false
 
+
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+function calculateNumbers(arr: any[]):number {
+  const filterNumber = arr.filter((item: any) => typeof item === 'number'); // Only filter numbers
+  let sum = 0;
+  for (let i of filterNumber) {
+      sum += i;  // Sum all filtered numbers
+  }
+  return sum;
+}
+
+const Task_O = calculateNumbers([10, "10", {son: 10}, true, 25]);
+console.log("Natija: ",Task_O);  
 
