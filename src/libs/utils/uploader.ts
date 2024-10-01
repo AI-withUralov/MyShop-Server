@@ -9,9 +9,9 @@ function getTargetImageStorage(address: any) {
         cb(null, `./uploads/${address}`);
       },
       filename: function (req, file, cb) {
-        const extension = path.parse(file.originalname).ext;
-        const random_name = v4() + extension;
-        cb(null, random_name);
+        const extension = path.parse(file.originalname).ext; // jpg
+        const random_name = v4() + extension;  /// hjgvkjgjvh + .jpg
+        cb(null, random_name); 
       },
     });
   }
