@@ -196,5 +196,16 @@ function calculateNumbers(arr: any[]):number {
 }
 
 const Task_O = calculateNumbers([10, "10", {son: 10}, true, 25]);
-console.log("Natija: ",Task_O);  
+//console.log("Natija: ",Task_O);  
 
+/* ------ Task P -------  */
+
+//Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+//MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(obj: { [key: string]: any }): [string, any][] {
+  return Object.entries(obj);
+}
+
+const Task_P = objectToArray({ a: 33, b: 44 });
+console.log("Natija:",Task_P); 
