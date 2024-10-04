@@ -208,4 +208,17 @@ function objectToArray(obj: { [key: string]: any }): [string, any][] {
 }
 
 const Task_P = objectToArray({ a: 33, b: 44 });
-console.log("Natija:",Task_P); 
+//console.log("Natija:",Task_P); 
+
+/* ------ Task Q -------  */
+
+//Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+//MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+
+function hasProperty(obj: object, prop: string): boolean {
+  return obj.hasOwnProperty(prop);
+}
+
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
