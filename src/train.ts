@@ -218,7 +218,15 @@ const Task_P = objectToArray({ a: 33, b: 44 });
 function hasProperty(obj: object, prop: string): boolean {
   return obj.hasOwnProperty(prop);
 }
+//console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
+//console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
 
+/* ------ Task R -------  */
+//Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+//MASALAN: calculate("1+3") return 4;
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
+function calculate(expression: string): number {
+  return eval(expression);
+}
+
+console.log(calculate("12+21+33")); 
