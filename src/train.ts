@@ -229,4 +229,19 @@ function calculate(expression: string): number {
   return eval(expression);
 }
 
-console.log(calculate("12+21+33")); 
+//console.log(calculate("12+21+33")); 
+
+/* ------ Task S -------  */
+//Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+//MASALAN: missingNumber([3, 0, 1]) return 2
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2; // 0 dan N gacha bo'lgan sonlar yig'indisi
+  const actualSum = nums.reduce((acc, curr) => acc + curr, 0); // Massivdagi mavjud sonlar yig'indisi
+  return expectedSum - actualSum; // Yetishmayotgan son - kutilgan yig'indi va haqiqiy yig'indi orasidagi farq
+}
+
+
+console.log("Yetishmagan son:",missingNumber([0, 1])); // 2
+
