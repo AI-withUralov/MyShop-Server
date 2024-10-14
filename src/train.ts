@@ -281,4 +281,21 @@ function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
 }
 
 const Task_T = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
-console.log(Task_T);
+//console.log(Task_T);
+
+
+/* ------ Task U -------  */
+//Shunday function yozing, uni number parametri bolsin va 0 dan berilgan parametrgacha bolgan oraliqdagi faqat toq sonlar nechtaligini return qilsin
+//MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+function sumOdds(n: number): number {
+  let count = 0;
+  for (let i = 1; i <= n; i += 2) {
+    count++;
+  }
+  return count;
+}
+
+
+console.log("Natija:",sumOdds(7));  
+
