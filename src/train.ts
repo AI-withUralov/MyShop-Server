@@ -295,7 +295,23 @@ function sumOdds(n: number): number {
   }
   return count;
 }
+//console.log("Natija:",sumOdds(7));  
 
 
-console.log("Natija:",sumOdds(7));  
+/* ------ Task V -------  */
+//Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+//MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+function countChars(str: string): { [key: string]: number } {
+  const charCount: { [key: string]: number } = {};
+  
+  for (const char of str) {
+      charCount[char] = (charCount[char] || 0) + 1;
+  }
+  
+  return charCount;
+}
+
+
+console.log(countChars("Jason"));
 
