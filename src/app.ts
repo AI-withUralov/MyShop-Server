@@ -3,6 +3,7 @@ import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan" // middleware
+import cookieParser from "cookie-parser";
 import  { MORGAN_FORMAT } from "./libs/config"
 
 import session from "express-session"; /// a series of related browser requests that come from same client during certain time period
@@ -20,6 +21,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(express.json()); // Parse JSON data
+app.use(cookieParser()); 
 app.use(morgan(MORGAN_FORMAT)) // requestni log qilib beradi
 
 // 2-SESSIONS: 
