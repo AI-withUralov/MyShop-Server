@@ -25,4 +25,19 @@ function calculateNumbers(arr) {
 }
 
 const Task_O = calculateNumbers([10, "10", {son: 10}, true, 35]);  // Properly passing the array
-console.log(Task_O);  // Output will be 45 (10 + 35)
+//console.log(Task_O);  // Output will be 45 (10 + 35)
+
+
+
+
+/*------------------- Array methods:  filter()------------------------*/
+
+const number = [23,45,3,23,10];
+const filtered = number.filter(checkAge)
+
+function checkAge(age) {
+    return age > 20
+}
+
+
+console.log(filtered)
