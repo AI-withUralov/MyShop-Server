@@ -311,7 +311,20 @@ function countChars(str: string): { [key: string]: number } {
   
   return charCount;
 }
+//console.log(countChars("Jason"));
 
+/* ------ Task W -------  */
+//Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+//MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
-console.log(countChars("Jason"));
+function chunkArray(arr: any[], chunkSize: number): any[][] {
+  const result: any[][] = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+      const chunk = arr.slice(i, i + chunkSize);
+      result.push(chunk);
+  }
+  return result;
+}
+
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
 
