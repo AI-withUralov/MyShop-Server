@@ -19,6 +19,7 @@ const store = new MongoDBStore({
 // 1-ENTRANCE: 
 const app = express();
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files
+app.use("/uploads", express.static("./uploads"));  // uploads folder tashqi olamga ochiq buldi
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(express.json()); // Parse JSON data
 app.use(cookieParser()); 

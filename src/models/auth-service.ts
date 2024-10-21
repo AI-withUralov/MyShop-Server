@@ -4,7 +4,7 @@ import { Member } from "../libs/types/member";
 import jwt from "jsonwebtoken";
 
 class AuthService {
-    private readonly secretToken;
+    private readonly secretToken; // property
   constructor() {
     this.secretToken = process.env.SECRET_TOKEN as string;
   }
