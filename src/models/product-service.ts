@@ -4,7 +4,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
 import ProductModel from "../schema/product-model";
 import { ProductStatus } from "../libs/enums/product-enum";
-
+import {ObjectId} from "mongoose"
 class ProductService {
     static createNewProduct(data: ProductInput) {
         throw new Error("Method not implemented.");
@@ -20,13 +20,9 @@ class ProductService {
     public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
       const match: T = { productStatus: ProductStatus.PROCESS };
     
-      if (inquiry.productCollection) {
-        match.productCollection = inquiry.productCollection;
-      }
+      if (inquiry.productCollection) {match.productCollection = inquiry.productCollection;}
     
-      if (inquiry.search) {
-        match.productName = { $regex: new RegExp(inquiry.search, "i") };
-      }
+      if (inquiry.search) {match.productName = { $regex: new RegExp(inquiry.search, "i") };}
     
       const sort: T =
         inquiry.order === "productPrice"
@@ -41,14 +37,27 @@ class ProductService {
           { $limit: inquiry.limit * 1 },
         ])
         .exec();
-    
-      if (!result) {
-        throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-      }
-    
+
+      if (!result) {throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);}
       return result;
     }
 
+    public async getProduct(memberId: ObjectId | null, id: string): Promise<Product> {
+      const productId = shapeIntoMongooseObjectId(id);
+  
+      let result = await this.productModel
+          .findOne({
+              _id: productId,
+              productStatus: ProductStatus.PROCESS,
+          })
+          .exec();
+  
+      if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+  
+      // TODO: If authenticated users => first => view log creation
+  
+      return result;
+  }
     /** SSR **/
 
     public async getAllProducts(): Promise<Product[]> {
