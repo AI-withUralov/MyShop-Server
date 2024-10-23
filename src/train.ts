@@ -326,7 +326,7 @@ function chunkArray(arr: any[], chunkSize: number): any[][] {
   return result;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
+//console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4));
 
 /* ------ Task X -------  */
 /** 
@@ -367,4 +367,18 @@ const exampleObject = {
       size: 30
   }
 };
-console.log(countOccurrences(exampleObject, 'model')); 
+//console.log(countOccurrences(exampleObject, 'model')); 
+
+
+/* ------ Task Y -------  */
+
+//Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+//MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  return arr1.filter(value => arr2.includes(value));
+}
+
+
+const result = findIntersection([1, 2, 3], [3, 2, 0]);
+console.log(result); 
