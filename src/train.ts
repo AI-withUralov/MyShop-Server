@@ -381,4 +381,21 @@ function findIntersection(arr1: number[], arr2: number[]): number[] {
 
 
 const result = findIntersection([1, 2, 3], [3, 2, 0]);
-console.log(result); 
+//console.log(result); 
+
+/* ------ Task Z -------  */
+//Shunday function yozing, u sonlardan tashkil topgan array qabul qilsin. Function arraydagi juft sonlarni yigindisini qaytarsin
+//MASALAN: sumEvens([1,2,3]) return 2
+
+
+function sumEvens(arr: number[]): number {
+  let sum = 0;
+  for (let num of arr) { 
+      if (num % 2 === 0) { 
+          sum += num; 
+      }
+  }
+  return sum; 
+}
+console.log(sumEvens([1, 2, 3, 4, 5,6])); // 6
+
