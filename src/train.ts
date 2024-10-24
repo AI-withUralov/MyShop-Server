@@ -397,5 +397,5 @@ function sumEvens(arr: number[]): number {
   }
   return sum; 
 }
-console.log(sumEvens([1, 2, 3, 4, 5,6])); // 6
+console.log(sumEvens([1, 2, 3, 4, 5,6]));
 
