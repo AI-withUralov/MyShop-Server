@@ -465,4 +465,27 @@ function changeNumberInArray(firstNumber: number, array: number[], thirdNumber: 
   return array;
 }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); 
+//console.log(changeNumberInArray(1, [1, 3, 7, 2], 2)); 
+
+
+/** TASK ZE */
+//Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+//MASALAN: removeDuplicate('stringg') return 'string'
+
+function removeDuplicates(str: string): string {
+
+  const uniqueChars = new Set<string>();
+  let result = '';
+  for (const char of str) {
+
+    if (!uniqueChars.has(char)) {
+      uniqueChars.add(char);
+      result += char;
+    }
+  }
+
+  return result;
+}
+const originalString = 'Jassonn';
+const uniqueString = removeDuplicates(originalString);
+console.log(uniqueString); 
