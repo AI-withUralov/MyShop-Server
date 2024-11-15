@@ -500,10 +500,10 @@ const uniqueString = removeDuplicates(originalString);
 
 
 function convertToSnakeCase(input: string): string {
-  // Remove leading/trailing spaces, convert to lowercase, and replace spaces with underscores
+ 
   return input.trim().toLowerCase().replace(/\s+/g, '_');
 }
 
-// Test the function
+
 const ZG = convertToSnakeCase('name should be a string');
-console.log(ZG); // Output: 'name_should_be_a_string'
+console.log(ZG); 
