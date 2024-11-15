@@ -488,4 +488,22 @@ function removeDuplicates(str: string): string {
 }
 const originalString = 'Jassonn';
 const uniqueString = removeDuplicates(originalString);
-console.log(uniqueString); 
+//console.log(uniqueString); 
+
+// TASK ZG
+
+// String sifatida berilgan string parametrni
+// snake case'ga o'tkazib beradigan function yozing.
+
+// MASALAN: convertToSnakeCase('name should be a string')
+// return 'name_should_be_a_string'
+
+
+function convertToSnakeCase(input: string): string {
+  // Remove leading/trailing spaces, convert to lowercase, and replace spaces with underscores
+  return input.trim().toLowerCase().replace(/\s+/g, '_');
+}
+
+// Test the function
+const ZG = convertToSnakeCase('name should be a string');
+console.log(ZG); // Output: 'name_should_be_a_string'
