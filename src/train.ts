@@ -506,4 +506,20 @@ function convertToSnakeCase(input: string): string {
 
 
 const ZG = convertToSnakeCase('name should be a string');
-console.log(ZG); 
+//console.log(ZG); 
+
+
+//ZH-TASK:
+
+//Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+//MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  const max = Math.max(...arr); 
+  const fullRange = Array.from({ length: max }, (_, i) => i + 1); 
+  return fullRange.filter(num => !arr.includes(num)); 
+}
+
+
+const ZH = findDisappearedNumbers([1, 3, 4, 9]);
+console.log(ZH); 
