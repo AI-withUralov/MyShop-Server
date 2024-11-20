@@ -522,4 +522,19 @@ function findDisappearedNumbers(arr: number[]): number[] {
 
 
 const ZH = findDisappearedNumbers([1, 3, 4, 9]);
-console.log(ZH); 
+//console.log(ZH); 
+
+//ZI-TASK:
+
+//Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World" ni qaytarsin.
+//MASALAN: delayHelloWorld("Hello World") return "Hello World"
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          resolve(message);
+      }, 3000);
+  });
+}
+
+delayHelloWorld("Hello World").then((result) => console.log(result));
