@@ -537,4 +537,24 @@ function delayHelloWorld(message: string): Promise<string> {
   });
 }
 
-delayHelloWorld("Hello World").then((result) => console.log(result));
+//delayHelloWorld("Hello World").then((result) => console.log(result));
+
+
+//ZJ-TASK:
+
+// Shunday function yozing, u berilgan arrayni ichidagi numberlarni qiymatini hisoblab qaytarsin.
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]) return 8
+
+function reduceNestedArray(arr: any[]): number {
+  return arr.reduce((sum, value) => {
+      if (Array.isArray(value)) {
+          return sum + reduceNestedArray(value);
+      } else if (typeof value === 'number') {
+          return sum + value;
+      }
+      return sum;
+  }, 0);
+}
+
+console.log("Javob:",reduceNestedArray([0, [3, 2, [4]]])); 
+
