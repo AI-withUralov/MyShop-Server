@@ -556,5 +556,28 @@ function reduceNestedArray(arr: any[]): number {
   }, 0);
 }
 
-console.log("Javob:",reduceNestedArray([0, [3, 2, [4]]])); 
+//console.log("Javob:",reduceNestedArray([0, [3, 2, [4]]])); 
+
+// TASK ZK:
+
+// Shunday function yozing, bu function har bir soniyada bir marotaba
+// console'ga 1'dan 5'gacha bo'lgan raqamlarni chop etsin va
+// 5 soniyadan so'ng function o'z ishini to'xtatsin
+  
+// MASALAN: printNumbers();
+
+function printNumbers(): void {
+  let counter = 1; 
+
+  const interval = setInterval(() => {
+    console.log(counter); 
+    counter++; 
+
+    if (counter > 5) {
+      clearInterval(interval); 
+    }
+  }, 1000); 
+}
+printNumbers();
+
 
