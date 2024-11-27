@@ -578,6 +578,19 @@ function printNumbers(): void {
     }
   }, 1000); 
 }
-printNumbers();
+//printNumbers();
 
+// ZL-TASK:
 
+// Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+
+function stringToKebab(input: string): string {
+  return input
+    .toLowerCase() 
+    .replace(/\s+/g, '-') 
+    .replace(/[^a-z0-9\-]/g, '');
+}
+
+// Misol:
+console.log(stringToKebab("This is Jason")); 
