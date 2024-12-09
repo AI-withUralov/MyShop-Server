@@ -18,10 +18,12 @@ class AuthService {
         {
           expiresIn: duration,
         },
-        (err, token) => {
+        (err, token) => { // Callback for the result
           if (err) 
+            // If there's an error, reject the Promise
             reject(new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED));
-          else resolve(token as string);
+          else resolve(token as string); // If successful, resolve the Promise with the token
+          
         }
       );
     });

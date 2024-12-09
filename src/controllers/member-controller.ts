@@ -32,7 +32,7 @@ memberController.signup = async (req: Request, res:Response) => {
             token = await authService.createToken(result);
             res.cookie("accessToken", token, {
                 maxAge: AUTH_TIMER * 3600 * 1000, // 24h 
-                httpOnly: false, // can be accessed via JavaScript
+                httpOnly: false, // can be accessed via JavaScript in browser
             });
 
             res.status(HttpCode.CREATED).json({member: result, accessToken: token})

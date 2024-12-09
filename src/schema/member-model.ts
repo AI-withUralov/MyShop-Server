@@ -2,11 +2,11 @@ import mongoose, {Schema} from "mongoose";
 import { MemberStatus, MemberType } from "../libs/enums/member-enum";
 
 const memeberSchema = new Schema( {
-    memberType: {
-        type: String,
-        enum: MemberType,
-        default: MemberType.USER,
-    },
+memberType: {
+    type: String,
+    enum: MemberType,
+    default: MemberType.USER,
+},
 memberStatus: {
     type: String,
     enum: MemberStatus,
@@ -26,7 +26,7 @@ memberPhone: {
 
 memberPassword: {
     type: String,
-    select: false,
+    select: false,  
     required: true,
 },
 
@@ -51,4 +51,4 @@ memberPoints: {
     {timestamps: true} // updatedAt, createdAt
 );
 
-export default mongoose.model("Member", memeberSchema);
+export default mongoose.model("Member", memeberSchema);// kichik harfa uzgartirib oxiriga "s" qushib beraid ==> members

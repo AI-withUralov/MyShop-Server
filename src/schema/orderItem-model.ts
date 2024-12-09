@@ -22,4 +22,4 @@ const orderItemSchema = new Schema(
   { timestamps: true, collection: "orderItems" }
 );
 
-export default mongoose.model("OrderItem", orderItemSchema);
+export default mongoose.model("OrderItem", orderItemSchema);// kichik harfa uzgartirib oxiriga "s" qushib beraid ==> orderItems

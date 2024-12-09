@@ -1,7 +1,7 @@
 console.log("Signup frontend javascript file");
 
 $(function () {
-    const fileTarget = $(".file-box .upload-hidden");
+    const fileTarget = $(".file-box .upload-hidden"); // bu input rasm joylash button yonidagi
     let filename;
 
 
@@ -14,18 +14,19 @@ $(function () {
                 alert("Please insert only jpeg, jpg and png!");
             } else {
                 if (uploadFile) {
-                    console.log(URL.createObjectURL(uploadFile));
-                    $(".upload-img-frame")
+                    console.log(URL.createObjectURL(uploadFile)); // faylga URL yaratiladi
+                    $(".upload-img-frame") // va bu URL upload-img-frame elementining src atributiga o‘rnatiladi.
                         .attr("src", URL.createObjectURL(uploadFile))
-                        .addClass("success");
+                        .addClass("success"); // rasmni ko‘rsatish jarayonida, tasvirni muvaffaqiyatli yuklanganini bildiruvchi klass qo‘shiladi (CSS orqali styling qilish mumkin).
                 }
                 filename = $(this)[0].files[0].name;
             }
-            $(this).siblings(".upload-name").val(filename);
+            $(this).siblings(".upload-name").val(filename); // file name upload-name classiga kursatiladi
         }
     });   
 });
 
+// Form validation mantig'i
 function validateSignupForm() {
     const memberNick = $(".member-nick").val();
     const memberPhone = $(".member-phone").val();
@@ -46,9 +47,7 @@ function validateSignupForm() {
         alert("Password differs, please check!");
         return false;
     }
-    const memberImage = $(".member-image").get(0)?.files[0]?.name 
-    ? $(".member-image").get(0).files[0].name 
-    : null;
+    const memberImage = $(".member-image").get(0)?.files[0]?.name ? $(".member-image").get(0).files[0].name : null;
     if (!memberImage) {
         alert("Please insert restaurant image!");
         return false;

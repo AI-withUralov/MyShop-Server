@@ -83,7 +83,7 @@ productController.createNewProduct = async (
 
         const data: ProductInput = req.body;
         data.productImages = req.files.map((ele) => {
-            return ele.path.replace(/\\/g, "/");
+            return ele.path.replace(/\\/g, "/"); // change the image path "\\" with forward slashes "/" for API
         });
 
         await productService.createNewProduct(data);

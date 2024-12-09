@@ -40,11 +40,11 @@ public async signup(input:MemberInput): Promise<Member> {
 }
 
 public async login(input: LoginInput): Promise<Member> {
-  // TODO: Consider member status later
+  //  Consider member status later
   const member = await this.memberModel
   .findOne(
-    {memberNick: input.memberNick, memberStatus: {$ne: MemberStatus.DELETE}},
-    {memberNick:1, memberPassword: 1, MemberStatus: 1}
+    {memberNick: input.memberNick, memberStatus: {$ne: MemberStatus.DELETE}}, //"not equal" to DELETE
+    {memberNick:1, memberPassword: 1, MemberStatus: 1} // 1 means include it
   )
   .exec();
 
@@ -126,10 +126,10 @@ public async addUserPoint(member: Member, point: number): Promise<Member> {
 
 public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
-      .findOne({ memberType: MemberType.RESTAURANT }) 
+      .findOne({ memberType: MemberType.RESTAURANT  }) 
       .exec(); 
   
-   if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+   if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);// agar allaqachon bulsa error beradi
       
       console.log("before:", input.memberPassword);
       const salt = await bcrypt.genSalt();
@@ -139,7 +139,7 @@ public async processSignup(input: MemberInput): Promise<Member> {
     try {
         const result = await this.memberModel.create(input); // Create a new member in the database with the provided input
   
-        result.memberPassword = ""; 
+        result.memberPassword = ""; // clientga response bulganda bo'sh string boradi hatto hashed kod ham bormasligi kerak chunki us sensitive data
   
         return result;
     } catch (err) {
@@ -149,7 +149,7 @@ public async processSignup(input: MemberInput): Promise<Member> {
 public async processLogin(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
     .findOne({memberNick: input.memberNick},
-        {memberNick: 1, memberPassword: 1}
+        {memberNick: 1, memberPassword: 1} // 1 bulsa olib beradi
         )
         .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);

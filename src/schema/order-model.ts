@@ -8,7 +8,7 @@ const orderSchema = new Schema(
         required: true,
       },
       orderDelivery: {
-        type: Number,
+        type: Number, 
         required: true,
       }, 
       orderStatus: {
@@ -25,5 +25,5 @@ const orderSchema = new Schema(
     { timestamps: true }
   );
   
-  export default mongoose.model("Order", orderSchema);
+  export default mongoose.model("Order", orderSchema); // kichik harfa uzgartirib oxiriga "s" qushib beraid ==> orders
   

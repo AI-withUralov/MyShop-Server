@@ -19,11 +19,11 @@ const store = new MongoDBStore({
 
 // 1-ENTRANCE: 
 const app = express();
-app.use(express.static(path.join(__dirname, "public"))); // Serve static files
-app.use("/uploads", express.static("./uploads"));  // uploads folder tashqi olamga ochiq buldi
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
-app.use(express.json()); // Parse JSON data
-app.use(cors({credentials: true, origin: true}))
+app.use(express.static(path.join(__dirname, "public"))); // public folder ichidagi static filellarni (rasm, css, js codelar) browserga ochib beradi
+app.use("/uploads", express.static("./uploads"));  // uploads papkasidagi statik fayllarni (rasmlar, CSS, JavaScript va boshqa fayllar) brauzer orqali ochib beradi.
+app.use(express.urlencoded({ extended: true })); // Tradational API -- HTML form data bn ishlaganda qullaniladi
+app.use(express.json()); // Rest API -- building an API that communicates with clients via JSON.
+app.use(cors({credentials: true, origin: true})) // Boshqa domain request kirib kelishiga ruxsat beradi
 app.use(cookieParser()); 
 app.use(morgan(MORGAN_FORMAT)) // requestni log qilib beradi
 

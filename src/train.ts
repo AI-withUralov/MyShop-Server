@@ -638,6 +638,32 @@ function areParenthesesBalanced(input: string): boolean {
 
   return balance === 0;
 }
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
-console.log(areParenthesesBalanced("(()))")); // false
-console.log(areParenthesesBalanced("((")); // false
+//console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda")); // true
+//console.log(areParenthesesBalanced("(()))")); // false
+//console.log(areParenthesesBalanced("((")); // false
+
+//ZO-TASK:
+
+//Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+//MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+
+
+function countNumberAndLetters(input: string): { number: number, letter: number } {
+  let numberCount = 0;
+  let letterCount = 0;
+
+  // Har bir belgini tekshirish
+  for (let char of input) {
+      if (/\d/.test(char)) { 
+          numberCount++;
+      } else if (/[a-zA-Z]/.test(char)) { 
+          letterCount++;
+      }
+  }
+
+  return { number: numberCount, letter: letterCount };
+}
+
+
+console.log(countNumberAndLetters("string152%\¥")); 

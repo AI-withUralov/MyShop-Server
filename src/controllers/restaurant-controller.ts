@@ -12,7 +12,7 @@ const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome")
-    res.render('home')
+    res.render('home') // views file ichidagi home.ejs ni run qiladi
   } catch (err) {
     console.log("Error, goHome:", err); // Log any errors
     res.redirect("/admin")
@@ -22,7 +22,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
-    res.render('signup')
+    res.render('signup') // views file ichidagi signup.ejs ni run qiladi
   } catch (err) {
     console.log("Error, getSignup:", err); // Log any errors
     res.redirect("/admin")
@@ -32,7 +32,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
-    res.render('login')
+    res.render('login') // views file ichidagi login.ejs ni run qiladi
     // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, getLogin:", err); // Log any errors
@@ -54,7 +54,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     
     req.session.member = result;
     req.session.save(function (){
-      res.redirect("/admin/product/all")
+      res.redirect("/admin/product/all") // signup bulganda shu url ga boradi
     })
 
  
@@ -72,11 +72,11 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     console.log("body:", req.body);
     const input: LoginInput =req.body;
     const result = await memberService.processLogin(input);
-    // TODO: Sessions Authentications
+    // Sessions Authentications
 
     req.session.member = result;
     req.session.save(function (){
-      res.redirect("/admin/product/all")
+      res.redirect("/admin/product/all") // login bulganda shu url ga boradi
     })
 
   } catch (err) {

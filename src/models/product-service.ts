@@ -24,28 +24,36 @@ class ProductService {
 
     public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
       const match: T = { productStatus: ProductStatus.PROCESS };
-    
-      if (inquiry.productCollection) {match.productCollection = inquiry.productCollection;}
-    
-      if (inquiry.search) {match.productName = { $regex: new RegExp(inquiry.search, "i") };}
-    
+  
+      // Agar inquiry obyektida productCollection bo'lsa, uni filterga qo'shamiz
+      if (inquiry.productCollection) { match.productCollection = inquiry.productCollection; }
+  
+      // qidirsh mantig'i buyerdagi "i" case sensitive emas degani
+      if (inquiry.search) { match.productName = { $regex: new RegExp(inquiry.search, "i") }; } // 
+  
+      // Mahsulotlarni tartiblash (sort) buyurtmasi
       const sort: T =
         inquiry.order === "productPrice"
-          ? { [inquiry.order]: 1 }
-          : { [inquiry.order]: -1 };
-    
+          ? { [inquiry.order]: 1 } // Agar tartib "productPrice" bo'lsa, ortib boruvchi tartibda
+          : { [inquiry.order]: -1 }; // Aks holda, kamayib boruvchi tartibda
+  
+      // Ma'lumotlarni yig'ish uchun aggregation query ishlatamiz
       const result = await this.productModel
         .aggregate([
-          { $match: match },
-          { $sort: sort },
-          { $skip: (inquiry.page - 1) * inquiry.limit },
-          { $limit: inquiry.limit * 1 },
+          { $match: match }, // Filterni qo'llash
+          { $sort: sort }, // Sortni qo'llash
+          { $skip: (inquiry.page - 1) * inquiry.limit }, // Skip - sahifalash uchun
+          { $limit: inquiry.limit * 1 }, // Limit - sahifalash uchun
         ])
         .exec();
-
-      if (!result) {throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);}
+  
+      // Agar natija topilmasa, xato chiqaramiz
+      if (!result) { throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND); }
+  
+      // Natijalarni qaytaramiz
       return result;
-    }
+  }
+  
 
     public async getProduct(memberId: ObjectId | null, id: string): Promise<Product> {
       const productId = shapeIntoMongooseObjectId(id);

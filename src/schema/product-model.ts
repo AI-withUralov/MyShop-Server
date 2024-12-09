@@ -51,7 +51,7 @@ const productSchema = new Schema({
     }, { timestamps: true }); // updatedAt, createdAt
 
     productSchema.index(
-    { productName: 1, productSize: 1, productVolume: 1 },
+    { productName: 1, productSize: 1, productVolume: 1 },// Bir xill nom, size va volumedagi productlar 2 marta xosil qilishga ruxsat bermaydi
     { unique: true }
     );
 
