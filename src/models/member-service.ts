@@ -61,7 +61,7 @@ public async login(input: LoginInput): Promise<Member> {
     throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
   }
 
-  return await this.memberModel.findById(member._id).lean().exec() // olingan malumotni uzgartira olamiz
+  return await this.memberModel.findById(member._id).lean().exec() // oddiy JavaScript obyekti qaytadi, Mongoose hujjati emas -- Oddiy va tezroq ishlaydi, agar faqat ma'lumot kerak bo'lsa
 }
 
 public async getMemberDetail(member: Member): Promise<Member> {
@@ -94,9 +94,9 @@ public async getTopUsers(): Promise<Member[]> {
   const result = await this.memberModel
     .find({
       memberStatus: MemberStatus.ACTIVE,
-      memberPoints: { $gte: 1 },
+      memberPoints: { $gte: 1 },// greater than or equal
     })
-    .sort({ memberPoints: -1 })
+    .sort({ memberPoints: -1 }) // eng kattasidan
     .limit(4)
     .exec();
 

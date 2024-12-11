@@ -666,4 +666,30 @@ function countNumberAndLetters(input: string): { number: number, letter: number 
 }
 
 
-console.log(countNumberAndLetters("string152%\¥")); 
+//console.log(countNumberAndLetters("string152%\¥")); 
+
+
+// ZP-TASK:
+
+// Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+function findDuplicates(arr: number[]): number[] {
+  const elementCounts: Record<number, number> = {};
+  const duplicates: number[] = [];
+
+
+  for (const num of arr) {
+    elementCounts[num] = (elementCounts[num] || 0) + 1;
+  }
+
+  for (const [key, count] of Object.entries(elementCounts)) {
+    if (count > 1) {
+      duplicates.push(Number(key));
+    }
+  }
+
+  return duplicates;
+}
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
