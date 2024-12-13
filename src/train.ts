@@ -692,4 +692,30 @@ function findDuplicates(arr: number[]): number[] {
   return duplicates;
 }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+//console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+
+// ZQ-TASK:
+
+// Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
+
+function singleNumber(nums: number[]): number {
+  const numCount: Record<number, number> = {};
+
+
+  for (const num of nums) {
+      numCount[num] = (numCount[num] || 0) + 1;
+  }
+
+
+  for (const num of nums) {
+      if (numCount[num] === 1) {
+          return num;
+      }
+  }
+
+  throw new Error("No single number found");
+}
+
+
+console.log(singleNumber([4, 2 ,4 ,3 , 1, 2, 1])); 
