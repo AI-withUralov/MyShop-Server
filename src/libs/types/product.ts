@@ -2,7 +2,8 @@ import {ObjectId} from "mongoose"
 
 import {
     ProductCollection,
-    ProductSize,
+    
+    ClothesSize,
     ProductStatus,
   } from "../enums/product-enum";
 
@@ -13,8 +14,8 @@ import {
     productName: string;
     productPrice: number;
     productLeftCount: number;
-    productSize: ProductSize;
-    productVolume: number;
+    clothesSize: ClothesSize;
+    shoesSize: string;
     productDesc?: string;
     productImages: string[];
     productViews: number;
@@ -36,8 +37,8 @@ import {
     productName: string;
     productPrice: number;
     productLeftCount: number;
-    productSize?: ProductSize;
-    productVolume?: number;
+    clothesSize?: ClothesSize;
+    shoesSize?: string;
     productDesc?: string;
     productImages?: string[];
     productViews?: number;
@@ -50,8 +51,8 @@ import {
     productName?: string;
     productPrice?: number;
     productLeftCount?: number;
-    productSize?: ProductSize;
-    productVolume?: number;
+    clothesSize?: ClothesSize;
+    shoesSize?: string;
     productDesc?: string;
     productImages?: string[];
     productViews?: number;

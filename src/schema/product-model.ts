@@ -1,5 +1,5 @@
 import mongoose, {Schema} from "mongoose"
-import { ProductCollection, ProductStatus, ProductSize, ProductVolume } from "../libs/enums/product-enum";
+import { ProductCollection, ProductStatus, ClothesSize, ShoesSize } from "../libs/enums/product-enum";
 
 
 const productSchema = new Schema({
@@ -25,16 +25,16 @@ const productSchema = new Schema({
         type: Number,
         required: true,
     },
-    productSize: {
+    ClothesSize: {
         type: String,
-        enum: ProductSize,
-        default: ProductSize.NORMAL,
+        enum: ClothesSize,
+        default: ClothesSize.M,
     },
 
-    productVolume: {
+    ShoesSize: {
         type: String,
-        enum: ProductVolume,
-        default: ProductVolume.ONE,
+        enum: ShoesSize,
+        default: ShoesSize.MEDIUM,
     },
     productDesc: {
         type: String,
@@ -51,7 +51,7 @@ const productSchema = new Schema({
     }, { timestamps: true }); // updatedAt, createdAt
 
     productSchema.index(
-    { productName: 1, productSize: 1, productVolume: 1 },// Bir xill nom, size va volumedagi productlar 2 marta xosil qilishga ruxsat bermaydi
+    { productName: 1, ClothesSize: 1, ShoesSize: 1 },// Bir xill nom, size va volumedagi productlar 2 marta xosil qilishga ruxsat bermaydi
     { unique: true }
     );
 

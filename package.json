@@ -1,7 +1,7 @@
 {
-  "name": "burak",
+  "name": "shop",
   "version": "1.0.0",
-  "description": "this is Burak project",
+  "description": "This is Shopping app project",
   "main": "src/server.ts",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -37,12 +37,8 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "ts-node /Users/sherzodbek/Desktop/Burak/src/train.ts",
     "start:dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
-    "train": "nodemon --exec ts-node src/train.ts",
-    "practice": "nodemon practice.js ",
-    "practice-ts": "nodemon practice-ts.ts ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jason",

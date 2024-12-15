@@ -7,9 +7,9 @@ import { AdminRequest } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
-const restaurantController: T = {};
+const adminController: T = {};
 
-restaurantController.goHome = (req: Request, res: Response) => {
+adminController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome")
     res.render('home') // views file ichidagi home.ejs ni run qiladi
@@ -19,7 +19,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+adminController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.render('signup') // views file ichidagi signup.ejs ni run qiladi
@@ -29,7 +29,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getLogin = (req: Request, res: Response) => {
+adminController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render('login') // views file ichidagi login.ejs ni run qiladi
@@ -40,7 +40,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
+adminController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processSignup");
     const file = req.file;
@@ -49,7 +49,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path;
     console.log(newMember)
-    newMember.memberType = MemberType.RESTAURANT;
+    newMember.memberType = MemberType.ADMIN;
     const result = await memberService.processSignup(newMember);
     
     req.session.member = result;
@@ -66,7 +66,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
   }
 };
 
-restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
+adminController.processLogin = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processLogin");
     console.log("body:", req.body);
@@ -88,7 +88,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 };
 
 
-restaurantController.logout = async (req: AdminRequest, res: Response) => {
+adminController.logout = async (req: AdminRequest, res: Response) => {
   try {
     console.log("logout");
     req.session.destroy(function() {
@@ -101,7 +101,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   }
 };
 
-restaurantController.getUsers = async (req: Request, res: Response) => {
+adminController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
@@ -114,7 +114,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.updateChosenUser = async(req: Request, res: Response) => {
+adminController.updateChosenUser = async(req: Request, res: Response) => {
   try {
     console.log("updateChosenProduct");
 
@@ -129,7 +129,7 @@ restaurantController.updateChosenUser = async(req: Request, res: Response) => {
 
 
 
-restaurantController.checkAuthSession = async(req: AdminRequest, res: Response) => {
+adminController.checkAuthSession = async(req: AdminRequest, res: Response) => {
   try {
     console.log("CheckAuthSession");
     if(req.session?.member)
@@ -140,11 +140,11 @@ restaurantController.checkAuthSession = async(req: AdminRequest, res: Response) 
   }
 };
 
-restaurantController.verifyRestaurant = (
+adminController.verifyAdmin = (
   req: AdminRequest,
   res: Response,
   next: NextFunction) => {
-  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+  if (req.session?.member?.memberType === MemberType.ADMIN) {
     req.member = req.session.member;
     next();
   } else {
@@ -155,6 +155,6 @@ restaurantController.verifyRestaurant = (
   }
 };
 
-export default restaurantController;
+export default adminController;
 
 
