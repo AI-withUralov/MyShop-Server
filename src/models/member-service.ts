@@ -13,7 +13,7 @@ class MemberService {
 
 /** SPA */
 
-public async getRestaurant(): Promise<Member> {
+public async getAdmin(): Promise<Member> {
   const result = await this.memberModel
     .findOne({ memberType: MemberType.ADMIN })
     .exec();
@@ -21,7 +21,7 @@ public async getRestaurant(): Promise<Member> {
   if (!result) {
     throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
   }
-
+  
   return result;
 }
 

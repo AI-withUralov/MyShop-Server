@@ -13,6 +13,7 @@ adminController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome")
     res.render('home') // views file ichidagi home.ejs ni run qiladi
+    
   } catch (err) {
     console.log("Error, goHome:", err); // Log any errors
     res.redirect("/admin")

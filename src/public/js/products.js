@@ -3,22 +3,22 @@ console.log("Products frontend javascript file");
 $(function () {
     $(".product-collection").on("change", () => {
         const selectedValue = $(".product-collection").val();
-        if (selectedValue === "DRINK") { //Drink bulganda product-collection yashiriladi product-volume kursatiladi
+        if (selectedValue === "SHOES") { //Drink bulganda product-collection yashiriladi shoes-size kursatiladi
             $("#product-collection").hide() // 
-            $("#product-volume").show()
-        } else { // boshqa hollarda product-volume yashiriladi product-collection kursatiladi
-            $("#product-volume").hide();
+            $("#shoes-size").show()
+        } else { // boshqa hollarda shoes-size yashiriladi product-collection kursatiladi
+            $("#shoes-size").hide();
             $("#product-collection").show();
         }
     })
 
-    $("#process-btn").on("click", () => { //newproduct btn bosilganda dish-container ichidagi mantiq kursatiladi
-        $(".dish-container").slideToggle(500);
+    $("#process-btn").on("click", () => { //newproduct btn bosilganda shop-container ichidagi mantiq kursatiladi
+        $(".shop-container").slideToggle(500);
         $("#process-btn").css("display", "none");
     })
 
     $("#cancel-btn").on("click", () => { // cancel qilib beradi
-        $(".dish-container").slideToggle(100);
+        $(".shop-container").slideToggle(100);
         $("#process-btn").css("display", "flex");
     })
     

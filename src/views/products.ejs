@@ -10,7 +10,7 @@
           <a class="nav-link active" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Menu</a>
+          <a class="nav-link" href="/admin/product/all">Products</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/user/all">Users</a>
@@ -25,19 +25,19 @@
       </ul>
     </div>
 
-    <div class="restaurant-menu-frame">
+    <div class="shop-menu-frame">
       <div class="board">
-        <div class="dishes-table">
-          <span class="new-dish-txt" style="margin-bottom: 30px">
-            RESTAURANT MENU
+        <div class="products-table">
+          <span class="new-product-txt" style="margin-bottom: 30px">
+            AVAILABLE PRODUCTS
           </span>
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
               <tr class="thead-light">
-                <th scope="col">T/r</th>
+                <th scope="col">No</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Type</th>
-                <th scope="col">Product Volume</th>
+                <th scope="col">Product Size</th>
                 <th scope="col">Product Price</th>
                 <th scope="col">Product Left Count</th>
                 <th scope="col">Status</th>
@@ -48,7 +48,7 @@
               <td><%= key + 1 %></td>
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
-              <td><%= value.productCollection === "DRINK" ? value.productVolume : value.productSize %></td>
+              <td><%= value.productCollection === "SHOES" ? value.shoesSize : value.clothesSize %></td>
               <td><%= value.productPrice %></td>
               <td><%= value.productLeftCount %></td>
               <td>
@@ -65,7 +65,7 @@
             class="long-input"
             style="align-items: flex-end; margin-bottom: 25px"
           >
-            <button class="btn btn-primary" id="process-btn">
+            <button class="btn btn-new-product" id="process-btn">
               New Product
             </button>
           </div>
@@ -74,11 +74,11 @@
         <form onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
-          class="dish-container"
+          class="shop-container"
           enctype="multipart/form-data"
         >
           <div class="long-input" style="display: flex; align-items: center">
-            <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
+            <span class="new-product-txt">NEW PRODUCT DETAIL</span>
           </div>
           <div class="login-input-frame">
             <div class="long-input">
@@ -121,32 +121,34 @@
             <div class="half-input">
               <label>Product Type</label>
               <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
-                <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
-                <option value="OTHER">Other</option>
+                 <option value="MEN" selected>Men Clothes</option>
+                 <option value="WOMEN">Women Clothes</option>
+                 <option value="UNISEX">Unisex</option>
+                 <option value="SHOES">Shoes</option>
+                 <option value="OTHER">Other</option>
               </select>
-            </div>
+           </div>
 
             <div class="half-input" id="product-collection">
-              <label>Dish Volume</label>
-              <select class="product-size" name="productSize">
+              <label>Clothes Size</label>
+              <select class="product-size" name="clothesSize">
                 <option value="SMALL">Small</option>
-                <option value="NORMAL" selected>Normal</option>
+                <option value="MEDIUM" >Medium</option>
                 <option value="LARGE">Large</option>
-                <option value="SET">Set</option>
+                <option value="EXTRA_LARGE">Extra Large</option>
+                <option value="ALL_SIZES_AVAILABLE">All Sizes Available</option>
+                
               </select>
             </div>
 
-            <div class="half-input" id="product-volume" style="display: none">
-              <label>Drink Volume</label>
-              <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
+            <div class="half-input" id="shoes-size" style="display: none">
+              <label>Shoes Size</label>
+              <select class="shoes-size" name="shoesSize">
+                <option value="SMALL">230-240</option>
+                <option value="MEDIUM" >245-255</option>
+                <option value="LARGE">260-270</option>
+                <option value="EXTRA_LARGE">275-285</option>
+                <option value="ALL">All Sizes Available</option>
               </select>
             </div>
           </div>
@@ -159,7 +161,7 @@
             <label>Product Images</label>
             <div class="media-frame">
               <div class="upload-img-box">
-                <img src="/img/upload.svg" class="1" id="image-section-1" />
+                <img src="/img/cloud_custom.png" class="1" id="image-section-1" />
                 <input
                   type="file"
                   id="file"
@@ -170,7 +172,7 @@
                 />
               </div>
               <div class="upload-img-box">
-                <img src="/img/upload.svg" class="2" id="image-section-2" />
+                <img src="/img/cloud_custom.png" class="2" id="image-section-2" />
                 <input
                   type="file"
                   id="file"
@@ -180,7 +182,7 @@
                 />
               </div>
               <div class="upload-img-box">
-                <img src="/img/upload.svg" class="3" id="image-section-3" />
+                <img src="/img/cloud_custom.png" class="3" id="image-section-3" />
                 <input
                   type="file"
                   id="file"
@@ -190,7 +192,7 @@
                 />
               </div>
               <div class="upload-img-box">
-                <img src="/img/upload.svg" class="4" id="image-section-4" />
+                <img src="/img/cloud_custom.png" class="4" id="image-section-4" />
                 <input
                   type="file"
                   id="file"
@@ -200,7 +202,7 @@
                 />
               </div>
               <div class="upload-img-box">
-                <img src="/img/upload.svg" class="5" id="image-section-5" />
+                <img src="/img/cloud_custom.png" class="5" id="image-section-5" />
                 <input
                   type="file"
                   id="file"
@@ -209,13 +211,13 @@
                   onchange="previewFileHandler(this, 5)"
                 />
               </div>
-              <input name="restaurantIid" class="restaurant-id" hidden />
+              
             </div>
           </div>
 
           <div class="operation-buttons">
             <button class="btn btn-danger" id="cancel-btn">Cancel</button>
-            <button type="submit" class="btn btn-primary" id="create-btn">Create</button>
+            <button type="submit" class="btn btn-success" id="create-btn">Create</button>
           </div>
         </form>
       </div>

@@ -6,7 +6,7 @@ import productController from "./controllers/product-controller";
 import orderController from "./controllers/order-controller";
 
 /** Member */
-router.get("/member/restaurant", memberController.getRestaurant);
+router.get("/member/admin", memberController.getAdmin);
 router.post("/member/signup", memberController.signup);
 router.post("/member/login", memberController.login);
 router.post("/member/logout", memberController.verifyAuth, memberController.logout)
@@ -23,5 +23,9 @@ router.get("/product/:id", memberController.retrieveAuth, productController.getP
 router.post("/order/create", memberController.verifyAuth, orderController.createOrder)
 router.get("/order/all", memberController.verifyAuth, orderController.getMyOrders)
 router.post("/order/update", memberController.verifyAuth, orderController.updateOrder)
+
+console.log("SECRET_TOKEN:", process.env.SECRET_TOKEN);
+
+
 
 export default router;

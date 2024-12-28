@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303f0, #dd6d04, #011c1afc, #7a6868);
+  background: linear-gradient(to right top, #051d37, #002d3c, #1d3b3c, #394740, #51534d);
 }
 
 .home-container a {
@@ -25,43 +25,27 @@
 .home-container .navigation-menu {
   position: relative;
   z-index: 10000;
+  top: 1%;
   color: #efefee;
   font-size: 40px;
   font-family: monospace;
 }
 
-.home-container .animation-frame {
+.wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 55px;
+  flex-wrap: wrap;
+  width: 1px;
+  height: 100vh;
 }
 
-.home-container .animation-wrapper {
-  position: relative;
-  width: 775px;
-  height: 775px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-container .sphere-animation {
-  position: relative;
-  width: 580px;
-  height: 580px;
-}
-
-.home-container .sphere path {
-  fill: url(#sphereGradient);
-  stroke-width: 1px;
-  stroke: rgba(80, 80, 80, 0.35);
-  backface-visibility: hidden;
-}
-
-@media (min-width: 500px) {
-  .sphere path {
-    stroke-width: 0.4px;
-  }
+.el {
+  position: absolute;
+  opacity: 1;
+  width: 2px;
+  height: 24vh;
+  margin-top: -30vh;
+  transform-origin: 50% 100%;
+  background: white;
 }

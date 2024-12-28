@@ -4,7 +4,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { ProductInput, ProductInquiry } from "../libs/types/product";
 import { AdminRequest, ExtendedRequest } from "../libs/types/member";
 import ProductService from "../models/product-service";
-import { ProductCollection } from "../libs/enums/product-enum";
+import { ClothesSize, ProductCollection } from "../libs/enums/product-enum";
 
 const productService = new ProductService();
 const productController: T = {};
@@ -12,6 +12,7 @@ const productController: T = {};
 productController.getProducts = async (req: Request, res: Response) => {
     try {
       console.log("getProducts");
+      
   
       const { page, limit, order, productCollection, search } = req.query;
   
@@ -26,6 +27,7 @@ productController.getProducts = async (req: Request, res: Response) => {
       if (search) {inquiry.search = String(search);}
 
       const result = await productService.getProducts(inquiry);
+      
 
       res.status(HttpCode.OK).json(result);
     } catch (err) {
@@ -43,10 +45,7 @@ productController.getProducts = async (req: Request, res: Response) => {
         const { id } = req.params;
         console.log(req.member)
         const memberId = req.member?._id ?? null,
-            result = await productService.getProduct(memberId, id);
-        
-          
-
+        result = await productService.getProduct(memberId, id);
         res.status(HttpCode.OK).json(result);
     } catch (err) {
         console.log("Error, getProduct:", err);
@@ -59,10 +58,7 @@ productController.getProducts = async (req: Request, res: Response) => {
 productController.getAllProducts = async (req:Request, res: Response) => {
     try{
         console.log("getAllProducts");
-
         const data = await productService.getAllProducts();
-
-
         res.render("products", {products: data});
     }catch (err) {
         console.log("Error, getAllProducts", err);
@@ -71,10 +67,7 @@ productController.getAllProducts = async (req:Request, res: Response) => {
     }
 };
 
-productController.createNewProduct = async (
-    req: AdminRequest, 
-    res: Response
-) => {
+productController.createNewProduct = async (req: AdminRequest, res: Response ) => {
     try {
         console.log("createNewProduct");
 
@@ -82,6 +75,7 @@ productController.createNewProduct = async (
             throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
         const data: ProductInput = req.body;
+       
         data.productImages = req.files.map((ele) => {
             return ele.path.replace(/\\/g, "/"); // change the image path "\\" with forward slashes "/" for API
         });

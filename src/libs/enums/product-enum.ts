@@ -1,17 +1,17 @@
 export enum ClothesSize {
     S = "SMALL",
     M = "MEDIUM",
-    L = "EXTRA LARGE",
-    XL = "EXTRA LARGE",
-    XXL = "DOUBLE EXTRA LARGE",
+    L = "LARGE",
+    XL = "EXTRA_LARGE",
+    ALL = "ALL_SIZES_AVAILABLE",
 }
 
 export enum ShoesSize {
-    SMALL = "230–240",
-    MEDIUM = "245–255",
-    LARGE = "260–270",
-    EXTRA_LARGE = "275–285",
-    DOUBLE_EXTRA_LARGE = "290-295",
+    SMALL = "SMALL", ///"230–240",
+    MEDIUM = "MEDIUM", //"245–255",
+    LARGE = "LARGE", // "260–270",
+    EXTRA_LARGE = "EXTRA_LARGE", //"275–285",
+    ALL= "ALL",
 }
 
 export enum ProductStatus {
@@ -22,9 +22,11 @@ export enum ProductStatus {
 
 
 export enum ProductCollection {
-    MEN_CLOTHES = "MenClothes",
-    WOMEN_CLOTHES = "WomenClothes",
-    UNISEX_CLOTHES = "UnisexClothes",
-    SHOES = "Shoes",
+    MEN = "MEN",
+    WOMEN = "WOMEN",
+    UNISEX = "UNISEX",
+    SHOES = "SHOES",
     OTHER = "OTHER",
 }
+
+
