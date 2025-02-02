@@ -83,6 +83,7 @@ public async updateMember(
   const result = await this.memberModel
     .findOneAndUpdate({ _id: memberId }, input, { new: true })
     .exec();
+    console.log("result", result)
 
   if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 
