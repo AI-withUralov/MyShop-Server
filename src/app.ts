@@ -38,13 +38,13 @@ app.use(
     },
     store: store,
     resave: true, // qayta request buganda cookie vaqti boshqatdan boshlanadi
-    saveUninitialized: true, //
+    saveUninitialized: true, // As soon as a user visits your website, a session is generated and stored.
   })
 );
 
 app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
-  res.locals.member = sessionInstance.member; /// ertaga
+  res.locals.member = sessionInstance.member; // Retrieves member from req.session - Stores it in res.locals.member, making it available throughout the request.
   next();
 });
 
